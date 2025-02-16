@@ -38,10 +38,6 @@
 // // //     }
 // // //   };
 
-
-
-  
-
 // // //   return (
 // // //     <div>
 // // //       <h2>Upload and Analyze Video</h2>
@@ -65,9 +61,6 @@
 // // //       <input type="file" onChange={handleFileChange} accept="video/*" />
 // // //       <button onClick={handleUpload}>Upload Video</button>
 
-      
-
-      
 // // //     </div>
 // // //   );
 // // // };
@@ -114,7 +107,6 @@
 // //     }
 // //   };
 
-  
 // //   return (
 // //     <div className="video-uploader-container">
 // //       <h2>Upload video</h2>
@@ -146,7 +138,6 @@
 // //         </div>
 // //       )}
 
-      
 // //     </div>
 // //   );
 // // };
@@ -229,13 +220,14 @@
 // export default VideoUploader;
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import "./VideoUploader.css"; // ✅ Import CSS file
+import "./VideoUploader.css"; // Import CSS file
 
 const VideoUploader = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [videoURL, setVideoURL] = useState("");
   const [childName, setChildName] = useState("");
   const [adminName, setAdminName] = useState("");
+  const [adminEmail, setAdminEmail] = useState("");
   const videoRef = useRef(null);
 
   // Handle file selection
@@ -249,7 +241,7 @@ const VideoUploader = () => {
 
   // Handle file upload
   const handleUpload = async () => {
-    if (!selectedFile || !childName || !adminName) {
+    if (!selectedFile || !childName || !adminName || !adminEmail) {
       return alert("Please enter both names and select a file.");
     }
 
@@ -257,11 +249,16 @@ const VideoUploader = () => {
     formData.append("video", selectedFile);
     formData.append("childName", childName);
     formData.append("adminName", adminName);
+    formData.append("adminEmail", adminEmail);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/upload", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/upload",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       alert("Uploaded successfully!");
       console.log("Upload successful:", response.data);
     } catch (error) {
@@ -284,6 +281,16 @@ const VideoUploader = () => {
         placeholder="Enter admin name"
       />
 
+      {/* Admin Email Input */}
+      <label className="label">Admin Email:</label>
+      <input
+        type="text"
+        className="input-field"
+        value={adminEmail}
+        onChange={(e) => setAdminEmail(e.target.value)}
+        placeholder="Enter admin email"
+      />
+
       {/* Child Name Input */}
       <label className="label">Child's Name:</label>
       <input
@@ -295,8 +302,15 @@ const VideoUploader = () => {
       />
 
       {/* File Input */}
-      <input type="file" onChange={handleFileChange} accept="video/*" className="input-field" />
-      <button onClick={handleUpload} className="upload-btn">Upload Video</button>
+      <input
+        type="file"
+        onChange={handleFileChange}
+        accept="video/*"
+        className="input-field"
+      />
+      <button onClick={handleUpload} className="upload-btn">
+        Upload Video
+      </button>
 
       {/* Video Preview */}
       {videoURL && (
