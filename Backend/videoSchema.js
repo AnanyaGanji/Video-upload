@@ -6,6 +6,7 @@ const videoSchema = new mongoose.Schema(
     filepath: { type: String, required: true },
     childName: { type: String, required: true },
     adminName: { type: String, required: true },
+    adminEmail: { type: String, required: true },
     uploadedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
