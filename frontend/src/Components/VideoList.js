@@ -45,14 +45,14 @@
 // export default VideoList;
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./VideoList.css"; // ✅ Import CSS for styling
+import "./VideoList.css"; // Import CSS for styling
 
 const VideoList = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/videos") // ✅ Ensure your backend route is correct
+      .get("http://localhost:5000/api/videos")
       .then((response) => {
         setVideos(response.data);
       })
@@ -68,6 +68,7 @@ const VideoList = () => {
         <thead>
           <tr>
             <th>Admin Name</th>
+            <th>Admin Email</th>
             <th>Child Name</th>
             <th>Video</th>
             <th>Date</th>
@@ -78,10 +79,14 @@ const VideoList = () => {
             videos.map((video) => (
               <tr key={video._id}>
                 <td>{video.adminName}</td>
+                <td>{video.adminEmail}</td>
                 <td>{video.childName}</td>
                 <td>
                   <video width="200" controls>
-                    <source src={`http://localhost:5000${video.filepath}`} type="video/mp4" />
+                    <source
+                      src={`http://localhost:5000${video.filepath}`}
+                      type="video/mp4"
+                    />
                     Your browser does not support the video tag.
                   </video>
                 </td>
