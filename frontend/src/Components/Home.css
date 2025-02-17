@@ -38,7 +38,7 @@ body {
   
   /* Buttons */
   .home-button {
-    background: #007bff;
+    background: #27ae60;
     color: white;
     font-size: 16px;
     border: none;
@@ -51,15 +51,15 @@ body {
   }
   
   .home-button:hover {
-    background: #0056b3;
+    background:#27ae60;
   }
   
   /* Upload Button (Different Color) */
   .home-button.upload {
-    background: #28a745;
+    background: #27ae60;
   }
   
   .home-button.upload:hover {
-    background: #1e7e34;
+    background:  #27ae60;
   }
   

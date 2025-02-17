@@ -38,6 +38,10 @@
 // // //     }
 // // //   };
 
+
+
+  
+
 // // //   return (
 // // //     <div>
 // // //       <h2>Upload and Analyze Video</h2>
@@ -61,6 +65,9 @@
 // // //       <input type="file" onChange={handleFileChange} accept="video/*" />
 // // //       <button onClick={handleUpload}>Upload Video</button>
 
+      
+
+      
 // // //     </div>
 // // //   );
 // // // };
@@ -107,6 +114,7 @@
 // //     }
 // //   };
 
+  
 // //   return (
 // //     <div className="video-uploader-container">
 // //       <h2>Upload video</h2>
@@ -138,6 +146,7 @@
 // //         </div>
 // //       )}
 
+      
 // //     </div>
 // //   );
 // // };
@@ -220,6 +229,8 @@
 // export default VideoUploader;
 import React, { useState, useRef } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // For navigation
+
 import "./VideoUploader.css"; // Import CSS file
 
 const VideoUploader = () => {
@@ -229,6 +240,7 @@ const VideoUploader = () => {
   const [adminName, setAdminName] = useState("");
   const [adminEmail, setAdminEmail] = useState("");
   const videoRef = useRef(null);
+  const navigate = useNavigate(); // For navigation
 
   // Handle file selection
   const handleFileChange = (event) => {
@@ -265,6 +277,11 @@ const VideoUploader = () => {
       console.error("Upload failed:", error);
       alert("Upload failed. Please try again.");
     }
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("authToken"); // Remove stored token (if using JWT)
+    sessionStorage.clear(); // Clears session data
+    navigate("/"); // Redirect to login page
   };
 
   return (
@@ -318,6 +335,8 @@ const VideoUploader = () => {
           <video ref={videoRef} src={videoURL} controls></video>
         </div>
       )}
+      <button onClick={handleLogout} className="logout-btn">Logout</button>
+
     </div>
   );
 };
