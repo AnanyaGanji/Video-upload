@@ -13,6 +13,8 @@
 /* Table Styling */
 .video-table {
   width: 100%;
+  /* max-width: 1000px; */
+  height: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   font-size: 16px;
@@ -282,20 +284,21 @@
   border-collapse: collapse;
 }
 
-.video-table th, .video-table td {
+.video-table th,
+.video-table td {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
 .video-table th {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
 .dropdown-btn {
   padding: 5px 10px;
   cursor: pointer;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
@@ -308,7 +311,7 @@
 .logout-btn {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #FF5733;
+  background-color: #ff5733;
   color: white;
   border: none;
   border-radius: 5px;
@@ -316,7 +319,7 @@
 }
 
 .logout-btn:hover {
-  background-color: #C70039;
+  background-color: #c70039;
 }
 
 .modal-overlay {
