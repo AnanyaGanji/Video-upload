@@ -1,0 +1,100 @@
+/* Calendar.css */
+.calendar-container {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.nav-button {
+  font-size: 2rem;
+  color: black;
+  background: white;
+  border: 2px solid black;
+  padding: 0.5rem 1rem; /* Change to create a rectangular shape */
+  border-radius: 0.25rem; /* Less rounded corners */
+  transition: transform 0.3s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the icon */
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  background: black;
+  color: white;
+}
+
+.month-year {
+  font-size: 2rem;
+  color: black;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.day-name {
+  font-weight: bold;
+  color: black;
+}
+
+.day-cell {
+  padding: 1rem;
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #e0e0e0; /* Light border */
+  border-radius: 0.5rem;
+  color: black;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* .day-cell:hover {
+  background-color: #e0e0e0;
+} */
+
+.event-indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: rgb(255, 0, 0); /* Black indicator */
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+.event-list {
+  margin-top: 1rem;
+  color: black; /* Black text for event list */
+}
+
+.event-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.event-item {
+  background-color: #f1f1f1; /* Light background for event items */
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #e0e0e0; /* Light border */
+}
+
+.marktoday {
+  background-color: rgb(85, 141, 209);
+}
+
+.mark-day{
+  background-color: rgb(137, 179, 231);
+}

@@ -1,0 +1,13 @@
+body {
+  background-color: #f7eecb;
+  background-image: url("/src/Components/images/parent-caretaker-portal.png");
+  background-attachment: fixed;
+  background-size: cover;
+  max-width: 100%;
+}
+
+.fc .fc-daygrid-day-number,
+.fc .fc-col-header-cell a {
+  text-decoration: none;
+  color: black;
+}
